@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import DownloadButton from './DownloadButton';
+
 import './App.css';
+
 
 // Define types for the data we'll receive from the API
 interface Thumbnail {
