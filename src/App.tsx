@@ -6,7 +6,7 @@ function App() {
   const [videoInfo, setVideoInfo] = useState(null);
   const [error, setError] = useState('');
 
-  const API_KEY = 'YOUR_API_KEY';
+  const API_KEY = 'AIzaSyDhf73DqXLCkONOUhWB94xF-JMNHUZcgyI';
 
   const fetchVideoInfo = async () => {
     if (!videoId) {
@@ -73,20 +73,47 @@ function App() {
 
       {/* Video Information */}
       {videoInfo && (
-        <div style={{ marginTop: '20px', border: '1px solid #ccc', padding: '20px', borderRadius: '8px' }}>
-          <h2>{videoInfo.snippet.title}</h2>
-          <p>{videoInfo.snippet.description}</p>
-          <p>
-            <strong>Views:</strong> {videoInfo.statistics.viewCount}
-          </p>
-          <p>
-            <strong>Likes:</strong> {videoInfo.statistics.likeCount || 'Unavailable'}
-          </p>
-          <p>
-            <strong>Comments:</strong> {videoInfo.statistics.commentCount || 'Unavailable'}
-          </p>
-        </div>
-      )}
+  <div
+    style={{
+      marginTop: '20px',
+      border: '1px solid #ccc',
+      padding: '20px',
+      borderRadius: '8px',
+    }}
+  >
+    <h2 style={{ marginBottom: '20px' }}>{videoInfo.snippet.title}</h2>
+    <table
+      style={{
+        width: '100%',
+        borderCollapse: 'collapse',
+      }}
+    >
+      <tbody>
+        <tr>
+          <td style={{ padding: '10px', border: '1px solid #ddd', fontWeight: 'bold' }}>Description</td>
+          <td style={{ padding: '10px', border: '1px solid #ddd' }}>{videoInfo.snippet.description}</td>
+        </tr>
+        <tr>
+          <td style={{ padding: '10px', border: '1px solid #ddd', fontWeight: 'bold' }}>Views</td>
+          <td style={{ padding: '10px', border: '1px solid #ddd' }}>{videoInfo.statistics.viewCount}</td>
+        </tr>
+        <tr>
+          <td style={{ padding: '10px', border: '1px solid #ddd', fontWeight: 'bold' }}>Likes</td>
+          <td style={{ padding: '10px', border: '1px solid #ddd' }}>
+            {videoInfo.statistics.likeCount || 'Unavailable'}
+          </td>
+        </tr>
+        <tr>
+          <td style={{ padding: '10px', border: '1px solid #ddd', fontWeight: 'bold' }}>Comments</td>
+          <td style={{ padding: '10px', border: '1px solid #ddd' }}>
+            {videoInfo.statistics.commentCount || 'Unavailable'}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+)}
+
     </div>
   );
 }
