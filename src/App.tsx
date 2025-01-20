@@ -185,7 +185,7 @@ function App() {
 
     return (
         <div className="app-container">
-            <h1>YouTube Video Information</h1>
+            <h1>YouTube Video Explorer Information</h1>
 
             {/* Input and Fetch Button */}
             <div className="input-container">

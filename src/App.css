@@ -125,3 +125,17 @@
           flex-basis: 40%;
       }
   }
+
+  .stats-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.stats-table td {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.stats-table tr:hover {
+    background-color: #f0f0f0;
+}
