@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import DownloadButton from './DownloadButton';
 
 import './App.css';
 
