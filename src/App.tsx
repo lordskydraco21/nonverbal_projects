@@ -52,11 +52,14 @@ interface Player {
 }
 
 interface Statistics {
-    viewCount?: string;
-    likeCount?: string;
-    commentCount?: string;
-    favoriteCount?: string;
+  viewCount?: string;
+  likeCount?: string;
+  commentCount?: string;
+  favoriteCount?: string;
 }
+
+
+
 interface Status {
     uploadStatus: string;
     privacyStatus: string;
@@ -244,12 +247,34 @@ function App() {
                           <label className='label'>Embed HTML:</label>
                           <div className="value embed-html" dangerouslySetInnerHTML={{ __html: videoInfo.player.embedHtml}} />
                     </InfoCard>
+
+
                     <InfoCard title="Statistics">
-                        <InfoRow label="View Count" value={formatNumber(videoInfo.statistics.viewCount)} />
-                       <InfoRow label="Like Count" value={formatNumber(videoInfo.statistics.likeCount)} />
-                       <InfoRow label="Comment Count" value={formatNumber(videoInfo.statistics.commentCount)} />
-                        <InfoRow label="Favorite Count" value={formatNumber(videoInfo.statistics.favoriteCount)} />
+                        <table className="stats-table">
+                            <tbody>
+                            <tr>
+                                <td><span className="label">View Count</span></td>
+                                <td><span className="value">{formatNumber(videoInfo.statistics.viewCount)}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span className="label">Like Count</span></td>
+                                <td><span className="value">{formatNumber(videoInfo.statistics.likeCount)}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span className="label">Comment Count</span></td>
+                                <td><span className="value">{formatNumber(videoInfo.statistics.commentCount)}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span className="label">Favorite Count</span></td>
+                                <td><span className="value">{formatNumber(videoInfo.statistics.favoriteCount)}</span></td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </InfoCard>
+
+
+
+
                     <InfoCard title="Status">
                         <InfoRow label="Upload Status" value={videoInfo.status.uploadStatus} />
                         <InfoRow label="Privacy Status" value={videoInfo.status.privacyStatus} />
@@ -260,6 +285,9 @@ function App() {
                            <InfoRow label="Scheduled Publish At" value={formatDate(videoInfo.status.publishAt)} />
                            )}
                        </InfoCard>
+
+
+                       
                      {videoInfo.topicDetails && (
                          <InfoCard title="Topic Details">
                                   {videoInfo.topicDetails.topicCategories && (
